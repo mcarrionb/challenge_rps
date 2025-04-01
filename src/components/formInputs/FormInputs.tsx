@@ -1,5 +1,4 @@
-import { useState } from "react";
-import { validacionName } from "./validacionInputs";
+import { validacionName } from "../../utils/validacionInputs";
 
 
 interface FormInputsProps {
@@ -10,22 +9,10 @@ interface FormInputsProps {
 }
 
 export const FormInputs : React.FC<FormInputsProps> = ({ name, setName, error, setError }) => {
-/*     const [name, setName] = useState("");
-    const [error, setError] = useState(""); */
 
     const inputNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setName(e.target.value);
         setError(validacionName(e.target.value));
-    }
-
-    const inputNameSubmit = (e : React.FormEvent) => {
-        e.preventDefault();
-        const validacion: string = validacionName(name)
-        if (validacion) {
-            setError(validacion);    
-            return;        
-        }
-        console.log("Datos -> ", name) 
     }
 
     return (

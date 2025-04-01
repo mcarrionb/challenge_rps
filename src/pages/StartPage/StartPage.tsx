@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./StartPage.css";
 import { useNavigate } from "react-router-dom";
-import { validacionName } from "../../components/formInputs/validacionInputs";
+import { validacionName } from "../../utils/validacionInputs";
 import { FormInputs } from "../../components/formInputs/FormInputs";
 import { ImageUploader } from "../../components/ImageUploader/ImageUploader";
 import { ImageSourceSelector } from "../../components/ImageSourceSelector/ImageSourceSelector";
@@ -22,8 +22,8 @@ export const StartPage: React.FC = () => {
     }
   };
 
-  const handleImageUrl = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setImagePreview(e.target.value);
+  const handleImageUrl = (url:string) => {
+    setImagePreview(url);
   };
 
   const handleStart = () => {
