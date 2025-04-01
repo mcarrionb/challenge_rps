@@ -11,9 +11,6 @@ interface ImgSelector {
 }
 
 export const ImaginInputs: FC<ImgSelector> = ({ opcion, setImgError, setImgData}): ReactElement => {
-
-    const [file, setFile] = useState<File | null>(null);
-    const [url, setUrl] = useState<string>("");
     const [preview, setPreview] = useState<string | null>(null);
 
     
@@ -62,12 +59,7 @@ export const ImaginInputs: FC<ImgSelector> = ({ opcion, setImgError, setImgData}
             )}
 
             {opcion === "camera" && (
-                <>
-                    <button onClick={() => console.log("Abrir cámara")}>
-                        Tomar foto
-                    </button>
-                    <TomarFoto setImgError={setImgError} setImgData={setImgData} />
-                </>
+                <TomarFoto setImgError={setImgError} setImgData={setImgData} setPreview={setPreview} />
             )}
 
 

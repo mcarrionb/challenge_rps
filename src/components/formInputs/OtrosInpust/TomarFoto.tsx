@@ -1,4 +1,4 @@
-import React, { FC, ReactElement, useRef, useState } from "react";
+import React, { FC, ReactElement, useRef } from "react";
 import Webcam from "react-webcam";
 
 interface FotoProps {

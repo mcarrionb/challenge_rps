@@ -23,21 +23,17 @@ export const FormInputs: FC = (): ReactElement => {
             setError(validacion);
             return;
         }
-
         if (imgError) {
             console.log("Error en la imagen:", imgError);
             return;
         }
-
         const userData = {
             name,
             image: imgData, 
         };
 
         localStorage.setItem("userData", JSON.stringify(userData));
-    
         console.log("Datos guardados:", userData);
-
     }
 
     const inputOpcionImgChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
@@ -46,7 +42,6 @@ export const FormInputs: FC = (): ReactElement => {
     }
 
     return <form onSubmit={inputNameSubmit}>
-
         <div>
             <label htmlFor="name">Nombre:</label>
             <input
@@ -59,10 +54,7 @@ export const FormInputs: FC = (): ReactElement => {
             {error && <p style={{ color: "red" }}>{error}</p>}
         </div>
 
-
         <h3>Seleccionar Imagen</h3>
-
-
         <select onChange={inputOpcionImgChange} value={opcionImg}>
             <option value="file">Subir imagen</option>
             <option value="url">Insertar URL</option>
@@ -70,9 +62,7 @@ export const FormInputs: FC = (): ReactElement => {
         </select>
 
         <ImaginInputs opcion={opcionImg} setImgError={setImgError} setImgData={setImgData}/>
-
         {imgError && <p style={{ color: "red" }}>{imgError}</p>}
-
 
         <button type="submit">Enviar</button>
     </form>
