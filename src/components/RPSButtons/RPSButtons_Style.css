@@ -1,0 +1,53 @@
+.rps-container {
+    text-align: center;
+    font-family: Arial, sans-serif;
+    margin-top: 20px;
+  }
+  
+  .buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 10px;
+  }
+  
+  .rps-button {
+    background-color: white;
+    border: 2px solid gray;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background 0.3s, transform 0.2s;
+  }
+  
+  .rps-button:hover {
+    background-color: lightgray;
+    transform: scale(1.1);
+  }
+  
+  .selected-text {
+    margin-top: 15px;
+    font-weight: bold;
+  }
+  
+  /* Animación de carga (círculo giratorio) */
+  .loader {
+    margin: 15px auto;
+    width: 40px;
+    height: 40px;
+    border: 4px solid rgba(0, 0, 0, 0.2);
+    border-top: 4px solid black;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+  }
+  
+  @keyframes spin {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+  
