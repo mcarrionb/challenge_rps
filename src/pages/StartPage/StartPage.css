@@ -1,0 +1,116 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap');
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.user-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.form-card {
+    backdrop-filter: blur(2px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 2rem 6rem;
+    box-shadow: 0 0 20px rgba(180, 100, 255, 0.3);
+    text-align: center;
+    width: 300px;
+}
+
+.h1-part1{
+    color: #41bafa;
+    font-size: 2.5rem;
+}
+
+.h1-part2{
+    color: #7786f7;
+    font-size: 2.5rem;
+}
+
+/* Image container */
+.image-preview-container {
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.avatar-preview,
+.avatar-placeholder {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    background-color: #111;
+    border: 2px solid #7786f7;
+    outline: 1px solid #7786f7;
+    outline-offset: 7px;
+    box-shadow: 0 0 5px #7786f7;
+    margin: auto;
+}
+
+.avatar-placeholder {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #999;
+    background-color: #02071b;
+}
+
+/* Input styles */
+input[type="file"] {
+    display: none;
+}
+
+.text-input,
+.file-upload-input,
+.file-input,
+select {
+    width: 100%;
+    max-width: 300px;
+    padding: 12px 12px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border-radius: 6px;
+    border: 2px solid #0d1f55;
+    font-size: 18px;
+    background-color: #0a0d26;
+    color: white;
+}
+
+.file-upload-input {
+    background-color: #0a0d26;
+    color: #fff;
+    cursor: pointer;
+    text-align: center;
+    display: flex;
+    transition: background-color 0.3s;
+}
+
+.start-game-button{
+    padding: 12px 12px;
+    width: 100%;
+    margin-top: 16px;
+    color:  white;
+    background-color: transparent;
+    font-size: 1.1rem;
+    font-weight: bold;
+    border: 0.5px solid white;
+    border-radius: 5px;
+    box-shadow: 0 0 0 0.7px white;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+}
+
+.start-game-button:hover {
+    background-color: white;
+    color: #0d1f55;
+}
+
+.error-message{
+    color: white;
+}
+
