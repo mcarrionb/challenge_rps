@@ -6,3 +6,10 @@ export function validacionName(name: string) {
     }
     return "";
 }
+
+export const validarUrl = (url: string) => {
+    const regex = /^(https?:\/\/.*\.(?:png|jpg|jpeg|gif|webp))$/i;
+    return regex.test(url);
+};
+
+
