@@ -1,0 +1,30 @@
+.ventana-perfil-jugador {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  background-color: rgba(0, 0, 0); /* Fondo semitransparente */
+  padding: 10px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  color: white;
+  z-index: 999;
+  gap: 30px;
+  padding: 10px 30px;
+}
+
+.imagen-perfil {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 10px;
+  border: 2px solid #7786f7;
+  outline: 1px solid #7786f7;
+  outline-offset: 7px;
+  box-shadow: 0 0 5px #7786f7;
+}
+
+.info-perfil h2 {
+  font-size: 28px;
+}

@@ -5,7 +5,8 @@ import { validacionName } from "../../utils/validacionInputs";
 import { FormInputs } from "../../components/formInputs/FormInputs";
 import { ImageUploader } from "../../components/ImageUploader/ImageUploader";
 import { ImageSourceSelector } from "../../components/ImageSourceSelector/ImageSourceSelector";
-import { Bounce, ToastContainer, toast } from 'react-toastify';
+import {NotiToastError} from '../../components/NotiToast/NotiToastError';
+import { mostrarError } from "../../utils/NotiToast";
 
 export const StartPage: React.FC = () => {
   const navigate = useNavigate();
@@ -26,17 +27,6 @@ export const StartPage: React.FC = () => {
     }
   };
 
-  const mostrarError = (error: string) => (toast.error(error, {
-    position: "bottom-right",
-    autoClose: 5000,
-    hideProgressBar: false,
-    closeOnClick: false,
-    pauseOnHover: true,
-    draggable: true,
-    progress: undefined,
-    theme: "dark",
-    transition: Bounce,
-  }));
 
   const handleImageUrl = (url: string) => {
     setImagePreview(url);
@@ -99,7 +89,7 @@ export const StartPage: React.FC = () => {
 
       </div>
 
-      <ToastContainer
+      {/* <ToastContainer
         position="bottom-right"
         autoClose={5000}
         hideProgressBar={false}
@@ -111,7 +101,9 @@ export const StartPage: React.FC = () => {
         pauseOnHover
         theme="dark"
         transition={Bounce}
-      />
+      /> */}
+
+      < NotiToastError />
     </div>
   );
 };
