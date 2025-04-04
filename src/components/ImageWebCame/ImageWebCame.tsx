@@ -1,5 +1,6 @@
 import { FC, ReactElement, useRef, useState } from "react";
 import Webcam from "react-webcam";
+import {useTranslation} from 'react-i18next';
 // import "./WebcamPopup.css";
 
 
@@ -9,6 +10,9 @@ interface FotoProps {
 }
 
 export const ImageWebCame: FC<FotoProps> = ({ handleImageUrl }): ReactElement => {
+    const { t } = useTranslation();
+    
+    
     const webcamRef = useRef<Webcam | null>(null);
     const [isOpen, setIsOpen] = useState(false);
 
@@ -29,7 +33,7 @@ export const ImageWebCame: FC<FotoProps> = ({ handleImageUrl }): ReactElement =>
     return (
         <>
             <button onClick={() => setIsOpen(true)} className="start-game-button start-button-webcam ">
-                Abrir Webcam
+                {t("openWebCam")}
             </button>
 
             {isOpen && (
@@ -45,10 +49,10 @@ export const ImageWebCame: FC<FotoProps> = ({ handleImageUrl }): ReactElement =>
                         <div className="webcam-mask"></div>
                         <div className="popup-buttons">
                             <button onClick={foto} className="start-game-button capture">
-                                Tomar Foto
+                                {t("capPhotoWebCam")}
                             </button>
                             <button onClick={() => setIsOpen(false)} className="start-game-button close">
-                                Cerrar
+                                {t("closeWebCam")}
                             </button>
                         </div>
                         

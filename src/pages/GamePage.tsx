@@ -10,7 +10,7 @@ export const GamePage: React.FC = () => {
     return (
         <>
         < PerfilGame username={username} image={image}/>
-        <NotiResultGame resultGame="perdedor" />
+        {/* <NotiResultGame resultGame="perdedor" /> */}
         </>
     );
     

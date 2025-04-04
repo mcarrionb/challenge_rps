@@ -1,0 +1,16 @@
+{
+  "errorImg": "Tria una imatge",
+  "startPageTitleP1": "INTRODUEIX EL TEU",
+  "startPageTitleP2": "NOM",
+  "buttonStart": "Començar",
+  "placeholderInputName": "Nom d'usuari",
+  "file": "Des d'un fitxer",
+  "selectFile": "Selecciona un fitxer",
+  "url": "Des d'una URL",
+  "placeholderUrl": "URL de la imatge",
+  "webcam": "Usa la càmera",
+  "openWebCam": "Obre la càmera",
+  "capPhotoWebCam": "Captura una foto",
+  "closeWebCam": "Tanca",
+  "avatar": "Sense imatge"
+}

@@ -1,0 +1,16 @@
+{
+  "errorImg": "Elige una imagen",
+  "startPageTitleP1": "INGRESA TU",
+  "startPageTitleP2": "NOMBRE",
+  "buttonStart": "Empezar",
+  "placeholderInputName": "Nombre de usuario",
+  "file": "Desde archivo",
+  "selectFile": "Seleccionar archivo",
+  "url": "Desde URL",
+  "placeholderUrl": "URL de la imagen",
+  "webcam": "Usar cámara",
+  "openWebCam": "Abrir cámara",
+  "capPhotoWebCam": "Capturar foto",
+  "closeWebCam": "Cerrar",
+  "avatar": "Sin imagen"
+}

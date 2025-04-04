@@ -1,0 +1,16 @@
+{
+    "errorImg": "Choose a image",
+    "startPageTitleP1": "ENTER YOUR",
+    "startPageTitleP2": "NAME",
+    "buttonStart": "Start",
+    "placeholderInputName": "username",
+    "file": "From File",
+    "selectFile": "Select File",
+    "url": "From URL",
+    "placeholderUrl": "Image URL",
+    "webcam": "Use WebCam",
+    "openWebCam": "Open WebCam",
+    "capPhotoWebCam": "Cap Photo",
+    "closeWebCam": "Close",
+    "avatar": "No image"
+}

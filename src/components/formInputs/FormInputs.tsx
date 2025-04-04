@@ -1,4 +1,5 @@
 import { validacionName } from "../../utils/validacionInputs";
+import {useTranslation} from 'react-i18next';
 
 
 interface FormInputsProps {
@@ -9,6 +10,8 @@ interface FormInputsProps {
 }
 
 export const FormInputs : React.FC<FormInputsProps> = ({ setName, setError }) => {
+  const { t } = useTranslation();
+
 
     const inputNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setName(e.target.value);
@@ -22,7 +25,7 @@ export const FormInputs : React.FC<FormInputsProps> = ({ setName, setError }) =>
         <div>
           <input
             type="text"
-            placeholder="username"
+            placeholder={t("placeholderInputName")}
             onChange={inputNameChange}
             className="text-input"
         />

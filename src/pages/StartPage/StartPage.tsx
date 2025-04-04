@@ -7,8 +7,11 @@ import { ImageUploader } from "../../components/ImageUploader/ImageUploader";
 import { ImageSourceSelector } from "../../components/ImageSourceSelector/ImageSourceSelector";
 import {NotiToastError} from '../../components/NotiToast/NotiToastError';
 import { mostrarError } from "../../utils/NotiToast";
+import { useTranslation } from 'react-i18next';
 
 export const StartPage: React.FC = () => {
+  const { t } = useTranslation();
+  
   const navigate = useNavigate();
   const [username, setUsername] = useState("");
   const [usernameError, setUsernameError] = useState("");
@@ -47,7 +50,7 @@ export const StartPage: React.FC = () => {
           },
         });
       } else {
-        mostrarError("Choose a image")
+        mostrarError(t('errorImg'))
       }
     }
 
@@ -57,8 +60,8 @@ export const StartPage: React.FC = () => {
   return (
     <div className="user-form">
       <div className="form-card">
-        <h1 className="h1-part1">ENTER YOUR</h1>
-        <h1 className="h1-part2">NAME</h1>
+        <h1 className="h1-part1">{t("startPageTitleP1")}</h1>
+        <h1 className="h1-part2">{t("startPageTitleP2")}</h1>
 
         {/* Div to preview the image */}
         <ImageUploader imagePreview={imagePreview} />
@@ -84,24 +87,12 @@ export const StartPage: React.FC = () => {
 
         {/* Start game btn */}
         <button className="start-game-button" onClick={handleStart}>
-          Start
+          {t("buttonStart")}
         </button>
 
       </div>
 
-      {/* <ToastContainer
-        position="bottom-right"
-        autoClose={5000}
-        hideProgressBar={false}
-        newestOnTop={false}
-        closeOnClick={false}
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
-        theme="dark"
-        transition={Bounce}
-      /> */}
+      
 
       < NotiToastError />
     </div>
