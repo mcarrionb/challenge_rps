@@ -8,23 +8,24 @@ interface FormInputsProps {
     setError: (error: string) => void;
 }
 
-export const FormInputs : React.FC<FormInputsProps> = ({ name, setName, error, setError }) => {
+export const FormInputs : React.FC<FormInputsProps> = ({ setName, setError }) => {
 
     const inputNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setName(e.target.value);
         setError(validacionName(e.target.value));
+        // console.log(validacionName(e.target.value))
     }
+
+   
 
     return (
         <div>
           <input
             type="text"
             placeholder="username"
-            value={name}
             onChange={inputNameChange}
             className="text-input"
         />
-          {error && <p className="error-message">{error}</p>}
         </div>
     );
 }

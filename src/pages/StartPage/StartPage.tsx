@@ -5,6 +5,7 @@ import { validacionName } from "../../utils/validacionInputs";
 import { FormInputs } from "../../components/formInputs/FormInputs";
 import { ImageUploader } from "../../components/ImageUploader/ImageUploader";
 import { ImageSourceSelector } from "../../components/ImageSourceSelector/ImageSourceSelector";
+import { Bounce, ToastContainer, toast } from 'react-toastify';
 
 export const StartPage: React.FC = () => {
   const navigate = useNavigate();
@@ -12,6 +13,9 @@ export const StartPage: React.FC = () => {
   const [usernameError, setUsernameError] = useState("");
   const [imagePreview, setImagePreview] = useState<string | null>(null);
   const [imageSource, setImageSource] = useState<"file" | "url" | "webcam">("file");
+
+  let validationMsg: string = "";
+
 
   const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
@@ -22,26 +26,42 @@ export const StartPage: React.FC = () => {
     }
   };
 
-  const handleImageUrl = (url:string) => {
+  const mostrarError = (error: string) => (toast.error(error, {
+    position: "bottom-right",
+    autoClose: 5000,
+    hideProgressBar: false,
+    closeOnClick: false,
+    pauseOnHover: true,
+    draggable: true,
+    progress: undefined,
+    theme: "dark",
+    transition: Bounce,
+  }));
+
+  const handleImageUrl = (url: string) => {
     setImagePreview(url);
   };
 
+
+
   const handleStart = () => {
-    const validationMsg = validacionName(username);
-    setUsername(validationMsg);
-
-    if (validationMsg) return;
-
-    if (imagePreview) {
-      navigate("/game", {
-        state: {
-          username,
-          image: imagePreview,
-        },
-      });
+    validationMsg = validacionName(username);
+    if (validationMsg != "") {
+      mostrarError(validationMsg)
     } else {
-      alert("Choose a image");
+      if (imagePreview) {
+        navigate("/game", {
+          state: {
+            username,
+            image: imagePreview,
+          },
+        });
+      } else {
+        mostrarError("Choose a image")
+      }
     }
+
+
   };
 
   return (
@@ -53,7 +73,7 @@ export const StartPage: React.FC = () => {
         {/* Div to preview the image */}
         <ImageUploader imagePreview={imagePreview} />
 
-        
+
         {/* Selector to choose the source of the image */}
         <ImageSourceSelector
           imageSource={imageSource}
@@ -69,14 +89,29 @@ export const StartPage: React.FC = () => {
           setName={setUsername}
           error={usernameError}
           setError={setUsernameError}
+
         />
 
         {/* Start game btn */}
         <button className="start-game-button" onClick={handleStart}>
           Start
         </button>
-        
+
       </div>
+
+      <ToastContainer
+        position="bottom-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick={false}
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="dark"
+        transition={Bounce}
+      />
     </div>
   );
 };
