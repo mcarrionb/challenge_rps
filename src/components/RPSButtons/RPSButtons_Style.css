@@ -1,88 +1,91 @@
-    
-.rps-container {
-    text-align: center;
-    font-family: Arial, sans-serif;
-    margin-top: 20px;
-  }
-  
-  .buttons {
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-    margin-top: 10px;
-  }
-  
-  [class^="rps-button"] {
-    background-color: rgb(247, 0, 255, 0.1);
-    border: 2px solid rgb(0, 204, 255);
-    padding: 5% 5%;
-    height: auto;
-    font-size: 16px;
-    cursor: pointer;
-    border-radius: 5px;
-    transition: background 0.3s, transform 0.2s;
-  }
 
-  /*
-  .rps-button-piedra{
-    background-image: url("./RPSButtons_Media/Rock.png");
-    background-size: cover;
-  }
-  .rps-button-papel{
-    background-image: url("./RPSButtons_Media/Paper.png");
-    background-size: cover;
-  }
-  .rps-button-tijera{
-    background-image: url("./RPSButtons_Media/Scissors.png");
-    background-size: cover;
-  }*/
-  
-  [class^="rps-button"]:hover {
-    background-color: rgba(182, 123, 184, 0.5);
-    transform: scale(1.1);
-  }
-  
-  .selected-text {
-    margin-top: 15px;
-    font-weight: bold;
-  }
-  
-  /* Animación de carga (círculo giratorio) */
-  .loader {
-    margin: 15px auto;
-    width: 40px;
-    height: 40px;
-    border: 4px solid rgba(0, 195, 255, 0.8);
-    border-top: 4px solid rgb(255, 0, 234);
-    border-radius: 50%;
-    animation: spin 1s linear infinite;
-  }
-  .computer-choice-image{
-    width: 20%;
-  }
-  .choice-image{
-    width: 100px;
-  }
+.rps-container-2lados {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem;
+  color: #a8e1ff;
+  font-family: Arial, sans-serif;
+  margin-top: 20px;
+  gap: 2rem;
+}
 
-  [class^="resultado"], p{
-    color: #a8e1ff;
-    font-size: 1.2rem;
-    font-family: Arial, Helvetica, sans-serif;
-    
+
+.lado {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+
+.rps-button {
+  background-color: rgba(247, 0, 255, 0.1);
+  border: 2px solid rgb(0, 204, 255);
+  padding: 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s;
+}
+
+.rps-button:hover {
+  background-color: rgba(182, 123, 184, 0.5);
+  transform: scale(1.1);
+}
+
+
+.choice-image {
+  width: 80px;
+}
+
+.rps-button.seleccionado {
+  animation: seleccionAnim 0.5s ease;
+  border-color: #ff00f2;
+  box-shadow: 0 0 15px #ff00f2;
+}
+
+.resultado-mensaje {
+  width: 220px;
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #a8e1ff;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.loader {
+  margin: 15px auto;
+  width: 40px;
+  height: 40px;
+  border: 4px solid rgba(0, 195, 255, 0.8);
+  border-top: 4px solid rgb(255, 0, 234);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes seleccionAnim {
+  0% {
+    transform: scale(1);
   }
-  .eleccion-container{
-    display: flex;
-    align-content: center;
-    justify-content: center;
-    align-items: center;
+  50% {
+    transform: scale(1.25) rotate(5deg);
   }
-  
-  @keyframes spin {
-    0% {
-      transform: rotate(0deg);
-    }
-    100% {
-      transform: rotate(360deg);
-    }
+  100% {
+    transform: scale(1);
   }
-  
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+.contador-victorias {
+  margin-top: 30px;
+  font-size: 1.1rem;
+  color: #ffffff;
+  border-top: 1px solid #a8e1ff;
+  padding-top: 10px;
+}

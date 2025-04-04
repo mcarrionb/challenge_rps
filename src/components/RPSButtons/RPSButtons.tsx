@@ -11,51 +11,53 @@ const imagenes: Record<Opcion, string> = {
 
 const OPCIONES: Opcion[] = ["piedra", "papel", "tijera"];
 
-type Resultado = {
-  eleccionUsuario: Opcion;
-  eleccionComputadora: Opcion;
-  mensaje: string;
-} | null;
-
 export default function Juego() {
   const [isThinking, setIsThinking] = useState(false);
-  const [resultado, setResultado] = useState<Resultado>(null);
-  const [mostrarElecciones, setMostrarElecciones] = useState(false);
+  const [eleccionUsuario, setEleccionUsuario] = useState<Opcion | null>(null);
+  const [eleccionComputadora, setEleccionComputadora] = useState<Opcion | null>(null);
+  const [mensaje, setMensaje] = useState("");
+  const [victoriasUsuario, setVictoriasUsuario] = useState(0);
+  const [victoriasComputadora, setVictoriasComputadora] = useState(0);
 
   const determinarGanador = (usuario: Opcion, computadora: Opcion): string => {
-    if (usuario === computadora) return "¡Es un empate!";
+    if (usuario === computadora) return "¡Empate!";
     if (
       (usuario === "piedra" && computadora === "tijera") ||
       (usuario === "papel" && computadora === "piedra") ||
       (usuario === "tijera" && computadora === "papel")
-    )
+    ) {
+      setVictoriasUsuario((prev) => prev + 1);
       return "¡Ganaste!";
-    return "¡Perdiste!";
+    } else {
+      setVictoriasComputadora((prev) => prev + 1);
+      return "¡Perdiste!";
+    }
   };
 
-  const jugar = (eleccionUsuario: Opcion) => {
+  const jugar = (opcion: Opcion) => {
     setIsThinking(true);
-    setMostrarElecciones(false);
+    setEleccionUsuario(opcion);
+    setEleccionComputadora(null);
+    setMensaje("");
 
     setTimeout(() => {
-      const eleccionComputadora = OPCIONES[Math.floor(Math.random() * 3)];
-      setResultado({
-        eleccionUsuario,
-        eleccionComputadora,
-        mensaje: determinarGanador(eleccionUsuario, eleccionComputadora),
-      });
-      setMostrarElecciones(true);
+      const computadora = OPCIONES[Math.floor(Math.random() * 3)];
+      setEleccionComputadora(computadora);
+      const resultado = determinarGanador(opcion, computadora);
+      setMensaje(resultado);
       setIsThinking(false);
-    }, 1500);
+    }, 1000);
   };
 
   return (
-    <div className="rps-container">
-      <div className="buttons">
+    <div className="rps-container-2lados">
+      {/* LADO IZQUIERDO */}
+      <div className="lado usuario">
+        <h3>Tu elección</h3>
         {OPCIONES.map((opcion) => (
           <button
             key={opcion}
-            className={`rps-button-${opcion}`}
+            className={`rps-button ${eleccionUsuario === opcion ? "seleccionado" : ""}`}
             onClick={() => jugar(opcion)}
             disabled={isThinking}
           >
@@ -64,43 +66,29 @@ export default function Juego() {
         ))}
       </div>
 
-      {isThinking && (
-        <div className="thinking">
-          <div className="loader"></div>
-          <p>La computadora está eligiendo...</p>
+      {/* CENTRO */}
+      <div className="resultado-mensaje">
+        {isThinking ? <p>La computadora está eligiendo...</p> : <h2>{mensaje}</h2>}
+
+        {/* CONTADORES DE VICTORIAS */}
+        <div className="contador-victorias">
+          <p>🧑‍💻 Usuario: {victoriasUsuario}</p>
+          <p>🤖 Computadora: {victoriasComputadora}</p>
         </div>
-      )}
+      </div>
 
-      {!isThinking && resultado && mostrarElecciones && (
-        <div className="resultado-container">
-          <div className="elecciones">
-            <div className="eleccion-container">
-              <div className="eleccion-usuario">
-                <p>La elección del usuario es:</p>
-                <img
-                  src={imagenes[resultado.eleccionUsuario]}
-                  alt="Tu elección"
-                  className="choice-image"
-                />
-              </div>
-            
-
-            <div className="resultado-mensaje">
-              <h2>{resultado.mensaje}</h2>
-            </div>
-
-            <div className="eleccion-computadora">
-              <p>La máquina eligió:</p>
-              <img
-                src={imagenes[resultado.eleccionComputadora]}
-                alt="Elección de la computadora"
-                className="choice-image"
-              />
-            </div>
-            </div>
+      {/* LADO DERECHO */}
+      <div className="lado computadora">
+        <h3>Computadora</h3>
+        {OPCIONES.map((opcion) => (
+          <div
+            key={opcion}
+            className={`rps-button ${eleccionComputadora === opcion ? "seleccionado" : ""}`}
+          >
+            <img src={imagenes[opcion]} alt={opcion} className="choice-image" />
           </div>
-        </div>
-      )}
+        ))}
+      </div>
     </div>
   );
 }
