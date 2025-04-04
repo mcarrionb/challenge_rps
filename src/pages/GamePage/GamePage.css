@@ -1,0 +1,26 @@
+@import url('httpsfonts.googleapis.comcss2family=Orbitronwght@500&display=swap');
+
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.form-card {
+    backdrop-filter: blur(2px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 2rem 6rem;
+    box-shadow: 0 0 20px rgba(180, 100, 255, 0.3);
+    text-align: center;
+    width: 300px;
+}
+
+.h1-part1{
+    color: #41bafa;
+    font-size: 2.5rem;
+}
+
+.h2-part1{
+    color: #ee79e8;
+    font-size: 1.5rem;
+}
