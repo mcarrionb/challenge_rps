@@ -1,4 +1,4 @@
-.overlay {
+/* .overlay {
   backdrop-filter: blur(2px);
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 20px;
@@ -28,7 +28,7 @@
   text-shadow: 0 1px 3px rgba(255, 255, 255, 0.8);
 }
 
-/* .start-button {
+.start-button {
   color: #a952e3;
   background-color: transparent;
   font-size: 1.5rem;
@@ -43,9 +43,10 @@
   text-transform: uppercase;
   letter-spacing: 2px;
   transition: all 0.3s ease-in-out;
-} */
+}
 
 .start-button:hover {
   box-shadow: 0 0 20px #b100ff, 0 0 40px #9e00ff;
   transform: scale(1.05);
 }
+ */
