@@ -1,10 +1,4 @@
 import React from 'react';
-import {validacionName} from './validacionInputs';
-import {mostrarError} from './NotiToast';
-import {useTranslation} from 'react-i18next';
-
-
-
 
 export const firstUpper = (texto: string): string => {
   if (!texto) return "";
@@ -19,21 +13,3 @@ export const conversiorFile = (e: React.ChangeEvent<HTMLInputElement>, setImageP
     reader.readAsDataURL(file);
   }
 };
-
-// export  const handleStart = (username: string, validationMsg: string, imagePreview: string) => {
-//       validationMsg = validacionName(username);
-//       if (validationMsg != "") {
-//         mostrarError(validationMsg)
-//       } else {
-//         if (imagePreview) {
-//           navigate("/game", {
-//             state: {
-//               username,
-//               image: imagePreview,
-//             },
-//           });
-//         } else {
-//           mostrarError(t('errorImg'))
-//         }
-//       }
-//     }
