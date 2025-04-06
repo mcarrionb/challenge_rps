@@ -8,8 +8,6 @@ interface Props {
   handleImageUrl: (url: string) => void;
 }
 
-
-
 export const ImageSourceSelector: React.FC<Props> = ({
   imageSource,
   setImageSource,
@@ -23,13 +21,13 @@ export const ImageSourceSelector: React.FC<Props> = ({
    return (
   <>
     <select
-      className="text-input"
+      className="text-input mb-4 cursor-pointer"
       value={imageSource}
       onChange={(e) => setImageSource(e.target.value as "file" | "url" | "webcam")}
     >
-      <option value="file">From file</option>
-      <option value="url">From URL</option>
-      <option value="webcam">Use webcam</option>
+      <option value="file" className="text-indigo-900">From file</option>
+      <option value="url" className="text-indigo-900">From URL</option>
+      <option value="webcam" className="text-indigo-900">Use webcam</option>
     </select>
 
     {imageSource === "url" && (
@@ -42,18 +40,16 @@ export const ImageSourceSelector: React.FC<Props> = ({
     )}
 
     {imageSource === "file" && (
-      <>
-        <label htmlFor="file-upload" className="file-upload-input">
-          Select file
-        </label>
+      <label htmlFor="file-upload" className="text-input cursor-pointer flex items-left justify-left">
+        <span>Select file</span>
         <input
           id="file-upload"
           type="file"
           accept="image/*"
           onChange={handleImageChange}
-          className="file-input"
+          className="hidden"
         />
-      </>
+      </label>
     )}
 
     {imageSource === "webcam" && (

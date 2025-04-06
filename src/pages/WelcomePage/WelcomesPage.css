@@ -1,52 +1,114 @@
-/* .overlay {
-  backdrop-filter: blur(2px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 20px;
-  padding: 2rem 6rem;
-  box-shadow: 0 0 20px rgba(180, 100, 255, 0.3);
-  text-align: center;
-  transform: scale(0.8);
-  transform-origin: top;
+/* General styles */
+.welcome-container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url("../../assets/LightGalaxy2.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  transition: background-image 0.5s ease-in-out;
 }
 
-.game-title {
-  font-size: 4rem;
-  color: #61cafb;
-  text-shadow: 0 0 4px #47abd9;
-  font-family: "Oxanium", sans-serif;
-  width: 500px;
-  margin-top: 0;
-  text-shadow: 0 1px 3px rgba(255, 255, 255, 0.8);
+/* Light theme styles */
+.welcome-content {
+  backdrop-filter: blur(8px);
+  background: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  text-align: center;
+  box-shadow: 
+    0 0 30px rgba(255, 255, 255, 0.2),
+    inset 0 0 20px rgba(255, 255, 255, 0.1);
+  animation: fadeIn 1s ease-out;
 }
 
 .welcome-title {
-  font-size: 2.8rem;
-  color: #61cafb;
+  color: #1e3a8a;
+  font-family: "Oxanium", sans-serif;
+  letter-spacing: 3px;
+}
+
+.game-title {
+  background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
   font-family: "Oxanium", sans-serif;
   letter-spacing: 2px;
-  margin-bottom: 0;
-  text-shadow: 0 1px 3px rgba(255, 255, 255, 0.8);
 }
 
-.start-button {
-  color: #a952e3;
-  background-color: transparent;
-  font-size: 1.5rem;
-  font-weight: bold;
-  padding: 1rem 2.5rem;
-  border: 1.5px solid #a952e3;
-  border-radius: 10px;
+.play-button {
+  background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
+  color: #ffffff;
+  border: none;
+  font-family: "Oxanium", sans-serif;
   cursor: pointer;
-  outline: 1px solid #a952e35a;
-  outline-offset: 4px;
-  box-shadow: 0 0 0 0.7px #a952e3;
+  transition: all 0.3s ease;
   text-transform: uppercase;
   letter-spacing: 2px;
-  transition: all 0.3s ease-in-out;
+  box-shadow: 0 4px 15px rgba(30, 58, 138, 0.3);
 }
 
-.start-button:hover {
-  box-shadow: 0 0 20px #b100ff, 0 0 40px #9e00ff;
-  transform: scale(1.05);
+.play-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(30, 58, 138, 0.4);
+  background: linear-gradient(135deg, #1e3a8a 0%, #60a5fa 100%);
 }
- */
+
+.play-button:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 10px rgba(30, 58, 138, 0.3);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Dark theme styles */
+.dark .welcome-container {
+  background-image: url("../../assets/Galaxy3.png");
+}
+
+.dark .welcome-content {
+  background: rgba(13, 16, 33, 0.6);
+  box-shadow: 
+    0 0 30px rgba(88, 101, 242, 0.3),
+    inset 0 0 20px rgba(88, 101, 242, 0.1);
+  border: 1px solid rgba(88, 101, 242, 0.2);
+}
+
+.dark .welcome-title {
+  color: #e5e7eb;
+  text-shadow: 0 0 10px rgba(229, 231, 235, 0.5);
+}
+
+.dark .game-title {
+  background: linear-gradient(135deg, #e5e7eb 0%, #8b5cf6 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  text-shadow: 0 0 20px rgba(139, 92, 246, 0.3);
+}
+
+.dark .play-button {
+  background: linear-gradient(135deg, #5865F2 0%, #7289DA 100%);
+  color: white;
+  box-shadow: 0 4px 15px rgba(88, 101, 242, 0.4);
+}
+
+.dark .play-button:hover {
+  box-shadow: 0 6px 20px rgba(88, 101, 242, 0.6);
+  background: linear-gradient(135deg, #4752C4 0%, #5865F2 100%);
+}
+
+.dark .play-button:active {
+  box-shadow: 0 2px 10px rgba(88, 101, 242, 0.4);
+}

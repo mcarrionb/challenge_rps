@@ -65,38 +65,46 @@ export const StartPage: React.FC = () => {
   };
 
   return (
-    <div className="user-form">
-      <div className="form-card">
-        <h1 className="h1-part1">ENTER YOUR</h1>
-        <h1 className="h1-part2">NAME</h1>
-
-        {/* Div to preview the image */}
-        <ImageUploader imagePreview={imagePreview} />
-
-
-        {/* Selector to choose the source of the image */}
-        <ImageSourceSelector
-          imageSource={imageSource}
-          setImageSource={setImageSource}
-          handleImageChange={handleImageChange}
-          handleImageUrl={handleImageUrl}
-        />
+    <div className="start-container">
+      <div className="start-content">
+        <h1 className="profile-title">
+          PROFILE
+          <br />
+          SETUP
+        </h1>
 
 
-        {/* Username text input */}
-        <FormInputs
-          name={username}
-          setName={setUsername}
-          error={usernameError}
-          setError={setUsernameError}
+        <div className="profile-form">
+          {/* Div to preview the image */}
+          <ImageUploader imagePreview={imagePreview} />
 
-        />
 
-        {/* Start game btn */}
-        <button className="start-game-button" onClick={handleStart}>
-          Start
-        </button>
+          <div className="input-group">
+            {/* Selector to choose the source of the image */}
+            <ImageSourceSelector
+              imageSource={imageSource}
+              setImageSource={setImageSource}
+              handleImageChange={handleImageChange}
+              handleImageUrl={handleImageUrl}
+            />
+          </div>
 
+
+          {/* Username text input */}
+          <FormInputs
+            name={username}
+            setName={setUsername}
+            error={usernameError}
+            setError={setUsernameError}
+
+          />
+
+          {/* Start game btn */}
+          <button className="confirm-button rounded-xl" onClick={handleStart}>
+            CONFIRM
+          </button>
+
+        </div>
       </div>
 
       <ToastContainer

@@ -28,8 +28,8 @@ export const ImageWebCame: FC<FotoProps> = ({ handleImageUrl }): ReactElement =>
 
     return (
         <>
-            <button onClick={() => setIsOpen(true)} className="start-game-button start-button-webcam ">
-                Abrir Webcam
+            <button onClick={() => setIsOpen(true)} className="text-input cursor-pointer flex items-left justify-left start-button-webcam ">
+                Open webcam
             </button>
 
             {isOpen && (
@@ -44,10 +44,10 @@ export const ImageWebCame: FC<FotoProps> = ({ handleImageUrl }): ReactElement =>
                         />
                         <div className="webcam-mask"></div>
                         <div className="popup-buttons">
-                            <button onClick={foto} className="start-game-button capture">
+                            <button onClick={foto} className="border border-white rounded-md px-4 py-2 text-white cursor-pointer capture">
                                 Tomar Foto
                             </button>
-                            <button onClick={() => setIsOpen(false)} className="start-game-button close">
+                            <button onClick={() => setIsOpen(false)} className="border border-white rounded-md px-4 py-2 text-white cursor-pointer close">
                                 Cerrar
                             </button>
                         </div>
