@@ -35,17 +35,17 @@ export default function Juego() {
   const [isHistoryOpen, setIsHistoryOpen] = useState(false);
 
   const determinarGanador = (usuario: Opcion, computadora: Opcion): string => {
-    if (usuario === computadora) return "¡Empate!";
+    if (usuario === computadora) return t('draw');
     if (
       (usuario === "piedra" && computadora === "tijera") ||
       (usuario === "papel" && computadora === "piedra") ||
       (usuario === "tijera" && computadora === "papel")
     ) {
       setVictoriasUsuario((prev) => prev + 1);
-      return "¡Ganaste!";
+      return t('win');
     } else {
       setVictoriasComputadora((prev) => prev + 1);
-      return "¡Perdiste!";
+      return t('lost');
     }
   };
 
@@ -95,7 +95,7 @@ export default function Juego() {
 
         {/* CENTRO */}
         <div className="resultado-mensaje">
-          {isThinking ? <p>La computadora está eligiendo...</p> : <h2>{mensaje}</h2>}
+          {isThinking ? <p>{t('computerEleccion')}</p> : <h2>{mensaje}</h2>}
 
           {/* CONTADORES DE VICTORIAS */}
           <div className="contador-victorias">

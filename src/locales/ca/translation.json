@@ -37,7 +37,8 @@
   "computer": "Ordinador",
   "yourEleccion": "La teva Elecció",
   "user": "Usuari",
-  "computerEleccion": "L'ordinador està triant..."
-
-  
+  "computerEleccion": "L'ordinador està triant...",
+  "win": "Has guanyat!",
+  "lost": "Has perdut!",
+  "draw": "Empat!"
 }

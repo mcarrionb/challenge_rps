@@ -37,5 +37,8 @@
     "computer": "Computer",
     "yourEleccion": "Your choice",
     "user": "User",
-    "computerEleccion": "The computer is choosing..."
+    "computerEleccion": "The computer is choosing...",
+    "win": "You Win!",
+    "lost": "You Lost!",
+    "draw": "You Draw!"
 }
