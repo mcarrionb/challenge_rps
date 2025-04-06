@@ -18,9 +18,9 @@ export const SelectorLenguaje: React.FC = () => {
         value={i18n.language}
         onChange={cambiarLenguaje}
       >
-        <option value="en">English</option>
-        <option value="es">Español</option>
-         <option value="ca">Català</option>
+        <option value="en" className="dark:text-black">English</option>
+        <option value="es" className="dark:text-black">Español</option>
+         <option value="ca" className="dark:text-black">Català</option>
       </select>
     </div>
   );
