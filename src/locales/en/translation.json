@@ -31,5 +31,11 @@
     "downloadHistory": "Download History",
     "confirm": "CONFIRM",
     "validatioName3Leters": "The Name must be at least 3 characters long",
-    "validationNameBlank": "Name is required"
+    "validationNameBlank": "Name is required",
+    "oponent": "Oponent",
+    "your": "Your",
+    "computer": "Computer",
+    "yourEleccion": "Your choice",
+    "user": "User",
+    "computerEleccion": "The computer is choosing..."
 }

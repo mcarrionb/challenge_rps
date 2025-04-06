@@ -80,7 +80,7 @@ export default function Juego() {
       <div className="rps-container-2lados">
         {/* LADO IZQUIERDO */}
         <div className="lado usuario">
-          <h3>Tu elección</h3>
+          <h3>{t('yourEleccion')}</h3>
           {OPCIONES.map((opcion) => (
             <button
               key={opcion}
@@ -99,8 +99,8 @@ export default function Juego() {
 
           {/* CONTADORES DE VICTORIAS */}
           <div className="contador-victorias">
-            <p>🧑‍💻 Usuario: {victoriasUsuario}</p>
-            <p>🤖 Computadora: {victoriasComputadora}</p>
+            <p>🧑‍💻 {t('user')}: {victoriasUsuario}</p>
+            <p>🤖 {t('computer')} : {victoriasComputadora}</p>
           </div>
 
           {/* HISTORY BUTTON */}
@@ -114,7 +114,7 @@ export default function Juego() {
 
         {/* LADO DERECHO */}
         <div className="lado computadora">
-          <h3>Computadora</h3>
+          <h3>{t('computer')}</h3>
           {OPCIONES.map((opcion) => (
             <div
               key={opcion}

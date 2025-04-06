@@ -1,6 +1,7 @@
 import {FC, ReactElement} from 'react';
 import {firstUpper} from '../../utils/utilis';
 import "./PerfilGame.css";
+import { useTranslation } from 'react-i18next';
 
 
 interface PerfilProps {
@@ -11,6 +12,7 @@ interface PerfilProps {
 
 export const PerfilGame: FC<PerfilProps> = ({username, image, enemy}): ReactElement => {
     username = firstUpper(username);
+    const { t } = useTranslation();
     
     return (
         <div className={`ventana-perfil-jugador ${enemy ? "ventana-perfil-jugador-E" : "ventana-perfil-jugador-U"} 
@@ -37,7 +39,7 @@ export const PerfilGame: FC<PerfilProps> = ({username, image, enemy}): ReactElem
                     {username}
                 </h2>
                 <span className="text-sm text-gray-300 dark:text-gray-400">
-                    {enemy ? "Oponente" : "Tú"}
+                    {enemy ? t("oponent") : t("your")}
                 </span>
             </div>
         </div>

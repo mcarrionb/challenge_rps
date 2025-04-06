@@ -30,6 +30,13 @@
   "result": "Resultado",
   "downloadHistory": "Descargar",
   "confirm": "ACEPTAR",
-    "validatioName3Leters": "El Nombre debe tener almenos 3 caracteres",
-    "validationNameBlank": "El Nombre es obligatorio"
+  "validatioName3Leters": "El Nombre debe tener almenos 3 caracteres",
+  "validationNameBlank": "El Nombre es obligatorio",
+  "oponent": "Oponente",
+  "your": "Tú",
+  "computer": "Computadora",
+  "yourEleccion": "Tu eleccion",
+  "user": "Usuario",
+  "computerEleccion": "La computadora está eligiendo..."
+
 }

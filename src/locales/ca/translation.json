@@ -30,8 +30,14 @@
   "result": "Resultat",
   "downloadHistory": "Descarregar",
   "confirm": "ACCEPTAR",
-  
-    "validatioName3Leters": "El Nom ha de tenir almenys 3 caràcters",
-    "validationNameBlank": "El Nom és obligatori"
+  "validatioName3Leters": "El Nom ha de tenir almenys 3 caràcters",
+  "validationNameBlank": "El Nom és obligatori",
+  "oponent": "Oponent",
+  "your": "Tú",
+  "computer": "Ordinador",
+  "yourEleccion": "La teva Elecció",
+  "user": "Usuari",
+  "computerEleccion": "L'ordinador està triant..."
+
   
 }
