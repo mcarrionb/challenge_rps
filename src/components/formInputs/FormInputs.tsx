@@ -15,7 +15,7 @@ export const FormInputs : React.FC<FormInputsProps> = ({ setName, setError }) =>
 
     const inputNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setName(e.target.value);
-        setError(validacionName(e.target.value));
+        setError(validacionName(e.target.value, t));
     }
 
    

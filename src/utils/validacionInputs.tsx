@@ -1,8 +1,9 @@
-export function validacionName(name: string) {
+
+export function validacionName(name: string, t: (key: string) => string) {
     if (!name.trim()) {
-        return "El nombre es obligatorio";
+        return t('validationNameBlank');
     } else if (name.length < 3) {
-        return "El nombre debe tener almenos 3 caracteres";
+        return t('validatioName3Leters'); 
     }
     return "";
 }

@@ -9,8 +9,8 @@
   "startPageTitleEnemyP1": "PERSONALIZAR",
   "startPageTitleEnemyP2": "ENEMIGO",
   "showFormEnemy": "Personlziar Enemigo",
-  "errorToastE" :"ENEMIC -> ",
-  "errorToastU" :"USUARI -> ",
+  "errorToastE" :"ENEMIC: ",
+  "errorToastU" :"USUARI: ",
   "buttonStart": "Començar",
   "placeholderInputName": "Nom d'usuari",
   "file": "Des d'un fitxer",
@@ -29,5 +29,9 @@
   "computerChoice": "Elecció de l'ordinador",
   "result": "Resultat",
   "downloadHistory": "Descarregar",
-  "confirm": "ACCEPTAR"
+  "confirm": "ACCEPTAR",
+  
+    "validatioName3Leters": "El Nom ha de tenir almenys 3 caràcters",
+    "validationNameBlank": "El Nom és obligatori"
+  
 }

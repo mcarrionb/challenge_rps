@@ -9,8 +9,8 @@
     "startPageTitleEnemyP1": "CUSTOMIZE",
     "startPageTitleEnemyP2": "ENEMY",
     "showFormEnemy": "Customize Enemy",
-    "errorToastE": "ENEMY -> ",  
-    "errorToastU": "USER -> ",
+    "errorToastE": "ENEMY: ",  
+    "errorToastU": "USER: ",
     "buttonStart": "Start",
     "placeholderInputName": "username",
     "file": "From File",
@@ -29,5 +29,7 @@
     "computerChoice": "Computer Choice",
     "result": "Result",
     "downloadHistory": "Download History",
-    "confirm": "CONFIRM"
+    "confirm": "CONFIRM",
+    "validatioName3Leters": "The Name must be at least 3 characters long",
+    "validationNameBlank": "Name is required"
 }

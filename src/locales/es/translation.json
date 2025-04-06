@@ -9,8 +9,8 @@
   "startPageTitleEnemyP1": "PERSONALIZAR",
   "startPageTitleEnemyP2": "ENEMIG",
   "showFormEnemy": "Personlziar Enemigo",
-  "errorToastE" :"ENEMIGO -> ",
-  "errorToastU" :"USUARIO -> ",
+  "errorToastE" :"ENEMIGO: ",
+  "errorToastU" :"USUARIO: ",
   "buttonStart": "Empezar",
   "placeholderInputName": "Nombre de usuario",
   "file": "Desde archivo",
@@ -29,5 +29,7 @@
   "computerChoice": "Elección del ordenador",
   "result": "Resultado",
   "downloadHistory": "Descargar",
-  "confirm": "ACEPTAR"
+  "confirm": "ACEPTAR",
+    "validatioName3Leters": "El Nombre debe tener almenos 3 caracteres",
+    "validationNameBlank": "El Nombre es obligatorio"
 }

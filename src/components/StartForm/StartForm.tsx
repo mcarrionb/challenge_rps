@@ -26,6 +26,7 @@ export const StartForm: FC = ():ReactElement => {
 
   let validationMsg, validationMsgEnemy: string = "";
   const [verEnemyForm, setVerEnemyForm] = useState<boolean>(false);
+  
 
   const cambiarVerEnemy = () => {
     if (!verEnemyForm) {
@@ -41,8 +42,8 @@ export const StartForm: FC = ():ReactElement => {
   };
 
   const handleStart = () => {
-    validationMsg = validacionName(username);
-    validationMsgEnemy = validacionName(usernameEnemy);
+    validationMsg = validacionName(username, t);
+    validationMsgEnemy = validacionName(usernameEnemy, t);
 
     if (validationMsg != "") {
       mostrarError(t('errorToastU') + validationMsg)
@@ -70,11 +71,14 @@ export const StartForm: FC = ():ReactElement => {
   };
 
   return (
-    <div className="user-form">
-      <div className={verEnemyForm ? "form-card form-card-enemy" : "form-card"}>
-        <div className={verEnemyForm ? "form-dual" : ""}> 
-          <h1 className="h1-part1">{t("startPageTitleP1")}</h1>
-          <h1 className="h1-part2">{t("startPageTitleP2")}</h1>
+    <div className="start-container">
+      <div className={verEnemyForm ? "start-content form-card-enemy" : "start-content"}>
+        <div className={verEnemyForm ? "form-dual" : "form-indi"}> 
+          <h1 className="profile-title text-lg">
+            {t("startPageTitleP1")}
+            <br />
+            {t("startPageTitleP2")}
+          </h1>
 
           <FormBaseLoad  
             username={username}
@@ -91,8 +95,11 @@ export const StartForm: FC = ():ReactElement => {
 
 
         <div className={verEnemyForm ? "form-dual" : " form-hidden"}>
-          <h1 className="h1-part1">{t("startPageTitleEnemyP1")}</h1>
-          <h1 className="h1-part2">{t("startPageTitleEnemyP2")}</h1>
+          <h1 className="profile-title text-lg">
+            {t("startPageTitleEnemyP1")}
+            <br />
+            {t("startPageTitleEnemyP2")}
+          </h1>
 
           <FormBaseLoad  
             username={usernameEnemy}
@@ -108,23 +115,24 @@ export const StartForm: FC = ():ReactElement => {
         </div>
         
 
-        <div className="checkbox-container">
-          <input
-            id="show-enemy-form"
-            type="checkbox"
-            checked={verEnemyForm}
-            onChange={cambiarVerEnemy}
-            className="checkbox-input"
-          />
-          <label htmlFor="show-enemy-form" className="checkbox-label">
+      
+          
+          <label htmlFor="show-enemy-form" className="custom-checkbox">
+            <input
+              id="show-enemy-form"
+              type="checkbox"
+              checked={verEnemyForm}
+              onChange={cambiarVerEnemy}
+              className="checkbox-input"
+            />
             {t('showFormEnemy')}
           </label>
-        </div>
+
 
         {/* Start game btn */}
-        <button className="start-game-button" onClick={handleStart}>
-          {t("buttonStart")}
-        </button>
+        <button className="confirm-button rounded-xl" onClick={handleStart}>
+            {t('confirm')}
+          </button>
 
       </div>
       < NotiToastError />

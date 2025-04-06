@@ -28,19 +28,19 @@ export const FormBaseLoad: FC<FormBaseLoadProps> = ({username, setUsername, user
   };
 
   return (
-    <>
+    <div className="profile-form">
         {/* Div to preview the image */}
         <ImageUploader imagePreview={imagePreview} />
 
-
-        {/* Selector to choose the source of the image */}
-        <ImageSourceSelector
+        <div className="input-group">
+          {/* Selector to choose the source of the image */}
+          <ImageSourceSelector
             imageSource={imageSource}
             setImageSource={setImageSource}
             handleImageChange={handleImageChange}
             handleImageUrl={handleImageUrl}
-        />
-
+          />
+        </div>
 
         {/* Username text input */}
         <FormInputs
@@ -49,6 +49,6 @@ export const FormBaseLoad: FC<FormBaseLoadProps> = ({username, setUsername, user
             error={usernameError}
             setError={setUsernameError}
         />
-    </>
+    </div>
   );
 };
