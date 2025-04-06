@@ -39,6 +39,7 @@ export const FormBaseLoad: FC<FormBaseLoadProps> = ({username, setUsername, user
             setImageSource={setImageSource}
             handleImageChange={handleImageChange}
             handleImageUrl={handleImageUrl}
+            enemy={enemy}
           />
         </div>
 

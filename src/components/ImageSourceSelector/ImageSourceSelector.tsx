@@ -7,6 +7,7 @@ interface Props {
   setImageSource: (value: "file" | "url" | "webcam") => void;
   handleImageChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   handleImageUrl: (url: string) => void;
+  enemy?: boolean;
 }
 
 export const ImageSourceSelector: React.FC<Props> = ({
@@ -14,6 +15,7 @@ export const ImageSourceSelector: React.FC<Props> = ({
   setImageSource,
   handleImageChange,
   handleImageUrl,
+  enemy = false,
 }) => {
     const { t } = useTranslation();
   
@@ -43,10 +45,10 @@ export const ImageSourceSelector: React.FC<Props> = ({
     )}
 
     {imageSource === "file" && (
-      <label htmlFor="file-upload" className="text-input cursor-pointer flex items-left justify-left">
+      <label htmlFor={`file-upload-${enemy ? 'enemy' : 'user'}`} className="text-input cursor-pointer flex items-left justify-left">
         <span>{t("selectFile")}</span>
         <input
-          id="file-upload"
+          id={`file-upload-${enemy ? 'enemy' : 'user'}`}
           type="file"
           accept="image/*"
           onChange={handleImageChange}
@@ -56,7 +58,6 @@ export const ImageSourceSelector: React.FC<Props> = ({
     )}
 
     {imageSource === "webcam" && (
-      // <p className="webcam-placeholder">📷 Webcam functionality coming soon...</p>
       <ImageWebCame handleImageUrl={handleImageUrl}/>
     )}
   </>
