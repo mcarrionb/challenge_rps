@@ -1,20 +1,17 @@
 import React, { FC, ReactElement, useState } from "react";
 import "./../../pages/StartPage/StartPage.css";
+import "./StartForm.css";
+
 import { useNavigate } from "react-router-dom";
 import { validacionName } from "../../utils/validacionInputs";
-import { FormInputs } from "../../components/formInputs/FormInputs";
-import { ImageUploader } from "../../components/ImageUploader/ImageUploader";
-import { ImageSourceSelector } from "../../components/ImageSourceSelector/ImageSourceSelector";
 import {NotiToastError} from '../../components/NotiToast/NotiToastError';
 import { mostrarError } from "../../utils/NotiToast";
 import { useTranslation } from 'react-i18next';
-import {conversiorFile} from '../../utils/utilis';
+import { FormBaseLoad } from "../FormBaseLoad/FormBaseLoad";
 
-interface StartFormProps {
-    enemigo: string;
-}
 
-export const StartPage: FC<StartFormProps> = ({enemigo}):ReactElement => {
+
+export const StartForm: FC = ():ReactElement => {
   const { t } = useTranslation();
   
   const navigate = useNavigate();
@@ -22,34 +19,50 @@ export const StartPage: FC<StartFormProps> = ({enemigo}):ReactElement => {
   const [usernameError, setUsernameError] = useState("");
   const [imagePreview, setImagePreview] = useState<string | null>(null);
   const [imageSource, setImageSource] = useState<"file" | "url" | "webcam">("file");
+  const [usernameEnemy, setUsernameEnemy] = useState("");
+  const [usernameErrorEnemy, setUsernameErrorEnemy] = useState("");
+  const [imagePreviewEnemy, setImagePreviewEnemy] = useState<string | null>(null);
+  const [imageSourceEnemy, setImageSourceEnemy] = useState<"file" | "url" | "webcam">("file");
 
-  let validationMsg: string = "";
+  let validationMsg, validationMsgEnemy: string = "";
+  const [verEnemyForm, setVerEnemyForm] = useState<boolean>(false);
 
-  const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-   conversiorFile(e, setImagePreview)
+  const cambiarVerEnemy = () => {
+    if (!verEnemyForm) {
+      setVerEnemyForm(!verEnemyForm)
+    } else {
+      setVerEnemyForm(!verEnemyForm)
+
+      setUsernameEnemy("")
+      setUsernameErrorEnemy("")
+      setImagePreviewEnemy(null)
+      setImageSourceEnemy("file");
+    }
   };
-
-
-  const handleImageUrl = (url: string) => {
-    setImagePreview(url);
-  };
-
-
 
   const handleStart = () => {
     validationMsg = validacionName(username);
+    validationMsgEnemy = validacionName(usernameEnemy);
+
     if (validationMsg != "") {
-      mostrarError(validationMsg)
+      mostrarError(t('errorToastU') + validationMsg)
+    } else if (validationMsgEnemy != "" && verEnemyForm) {
+      mostrarError(t('errorToastE') + validationMsgEnemy)
+
     } else {
-      if (imagePreview) {
+      if (imagePreview == null) {
+        mostrarError(t('errorToastU') + t('errorImg'))
+      } else if (imagePreviewEnemy == null && verEnemyForm) {
+        mostrarError(t('errorToastE') + t('errorImg'))
+      } else {
         navigate("/game", {
           state: {
             username,
             image: imagePreview,
+            usernameEnemy,
+            imageEnemy: imagePreviewEnemy,
           },
         });
-      } else {
-        mostrarError(t('errorImg'))
       }
     }
 
@@ -58,31 +71,55 @@ export const StartPage: FC<StartFormProps> = ({enemigo}):ReactElement => {
 
   return (
     <div className="user-form">
-      <div className="form-card">
-        <h1 className="h1-part1">{t("startPageTitleP1")}</h1>
-        <h1 className="h1-part2">{t("startPageTitleP2")}</h1>
+      <div className={verEnemyForm ? "form-card form-card-enemy" : "form-card"}>
+        <div className={verEnemyForm ? "form-dual" : ""}> 
+          <h1 className="h1-part1">{t("startPageTitleP1")}</h1>
+          <h1 className="h1-part2">{t("startPageTitleP2")}</h1>
 
-        {/* Div to preview the image */}
-        <ImageUploader imagePreview={imagePreview} />
+          <FormBaseLoad  
+            username={username}
+            setUsername={setUsername}
+            usernameError={usernameError}
+            setUsernameError={setUsernameError}
+            imagePreview={imagePreview}
+            setImagePreview={setImagePreview}
+            imageSource={imageSource}
+            setImageSource={setImageSource} 
+            enemy={false}
+          />
+        </div>
 
 
-        {/* Selector to choose the source of the image */}
-        <ImageSourceSelector
-          imageSource={imageSource}
-          setImageSource={setImageSource}
-          handleImageChange={handleImageChange}
-          handleImageUrl={handleImageUrl}
-        />
+        <div className={verEnemyForm ? "form-dual" : " form-hidden"}>
+          <h1 className="h1-part1">{t("startPageTitleEnemyP1")}</h1>
+          <h1 className="h1-part2">{t("startPageTitleEnemyP2")}</h1>
 
+          <FormBaseLoad  
+            username={usernameEnemy}
+            setUsername={setUsernameEnemy}
+            usernameError={usernameErrorEnemy}
+            setUsernameError={setUsernameErrorEnemy}
+            imagePreview={imagePreviewEnemy}
+            setImagePreview={setImagePreviewEnemy}
+            imageSource={imageSourceEnemy}
+            setImageSource={setImageSourceEnemy} 
+            enemy={true}
+          />
+        </div>
+        
 
-        {/* Username text input */}
-        <FormInputs
-          name={username}
-          setName={setUsername}
-          error={usernameError}
-          setError={setUsernameError}
-
-        />
+        <div className="checkbox-container">
+          <input
+            id="show-enemy-form"
+            type="checkbox"
+            checked={verEnemyForm}
+            onChange={cambiarVerEnemy}
+            className="checkbox-input"
+          />
+          <label htmlFor="show-enemy-form" className="checkbox-label">
+            {t('showFormEnemy')}
+          </label>
+        </div>
 
         {/* Start game btn */}
         <button className="start-game-button" onClick={handleStart}>

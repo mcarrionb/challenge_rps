@@ -4,12 +4,14 @@ import {NotiResultGame} from '../components/NotiResultGame/NotiResultGame';
 
 export const GamePage: React.FC = () => {
     const location = useLocation();
-    const { username, image } = location.state || {};
+    const { username, image, usernameEnemy, imageEnemy} = location.state || {};
 
 
     return (
         <>
-        < PerfilGame username={username} image={image}/>
+        < PerfilGame username={username} image={image} enemy={false}/>
+        < PerfilGame username={usernameEnemy} image={imageEnemy} enemy={true}/>
+
         {/* <NotiResultGame resultGame="perdedor" /> */}
         </>
     );

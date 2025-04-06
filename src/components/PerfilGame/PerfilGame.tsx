@@ -5,14 +5,14 @@ import "./PerfilGame.css";
 
 interface PerfilProps {
     username: string;
-    image: string
-
+    image: string;
+    enemy: boolean;
 }
 
-export const PerfilGame: FC<PerfilProps> = ({username, image}): ReactElement => {
+export const PerfilGame: FC<PerfilProps> = ({username, image, enemy}): ReactElement => {
     username = firstUpper(username);
     return (
-        <div className="ventana-perfil-jugador">
+        <div className={enemy ? "ventana-perfil-jugador ventana-perfil-jugador-E" : "ventana-perfil-jugador ventana-perfil-jugador-U"}>
             <img src={image} alt="Perfil del jugador" className="imagen-perfil" />
             <div className="info-perfil">
                 <h2>{username}</h2>
