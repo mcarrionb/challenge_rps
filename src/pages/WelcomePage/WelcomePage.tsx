@@ -1,10 +1,11 @@
 import React from "react";
 import "./welcomesPage.css";
 import { useNavigate } from "react-router-dom";
-import { t } from "i18next";
+import { useTranslation } from "react-i18next";
 
 export const WelcomePage: React.FC = () => {
   const navigate = useNavigate();
+  const { t } = useTranslation();
 
   const handlePlay = () => {
     navigate("/form");
@@ -23,7 +24,7 @@ export const WelcomePage: React.FC = () => {
           onClick={handlePlay} 
           className="play-button text-lg font-semibold px-16 py-4 rounded-xl"
         >
-          PLAY
+          {t("buttonStart")}
         </button>
       </div>
     </div>
