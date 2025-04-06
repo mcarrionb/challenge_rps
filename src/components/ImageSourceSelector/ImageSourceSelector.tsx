@@ -1,5 +1,6 @@
 import React from "react";
 import { ImageWebCame } from "../ImageWebCame/ImageWebCame";
+import {useTranslation} from 'react-i18next';
 
 interface Props {
   imageSource: "file" | "url" | "webcam";
@@ -14,6 +15,8 @@ export const ImageSourceSelector: React.FC<Props> = ({
   handleImageChange,
   handleImageUrl,
 }) => {
+    const { t } = useTranslation();
+  
     const ImageUrl = (e: React.ChangeEvent<HTMLInputElement>) => {
       handleImageUrl(e.target.value)
    }
@@ -25,23 +28,23 @@ export const ImageSourceSelector: React.FC<Props> = ({
       value={imageSource}
       onChange={(e) => setImageSource(e.target.value as "file" | "url" | "webcam")}
     >
-      <option value="file" className="text-indigo-900">From file</option>
-      <option value="url" className="text-indigo-900">From URL</option>
-      <option value="webcam" className="text-indigo-900">Use webcam</option>
+      <option value="file" className="text-indigo-900">{t("file")}</option>
+      <option value="url" className="text-indigo-900">{t("url")}</option>
+      <option value="webcam" className="text-indigo-900">{t("webcam")}</option>
     </select>
 
     {imageSource === "url" && (
       <input
         className="text-input"
         type="text"
-        placeholder="Image URL"
+        placeholder={t("placeholderUrl")}
         onChange={ImageUrl}
       />
     )}
 
     {imageSource === "file" && (
       <label htmlFor="file-upload" className="text-input cursor-pointer flex items-left justify-left">
-        <span>Select file</span>
+        <span>{t("selectFile")}</span>
         <input
           id="file-upload"
           type="file"

@@ -7,7 +7,6 @@ export const ToggleButton: React.FC = () =>{
     useEffect(() => {
         const savedTheme = localStorage.getItem("theme");
         const preferedTheme = window.matchMedia("(prefers-color-scheme: dark)").matches;
-        console.log(preferedTheme);
 
         if (savedTheme === 'dark' || (!savedTheme && preferedTheme)) {
             document.documentElement.classList.add('dark');
@@ -21,7 +20,6 @@ export const ToggleButton: React.FC = () =>{
         const toggleDarkMode = () => {
           const newMode = !isDark;
           setIsDark(newMode);
-          console.log(newMode)
           if (newMode) {
             document.documentElement.classList.add('dark');
             localStorage.setItem('theme', 'dark');

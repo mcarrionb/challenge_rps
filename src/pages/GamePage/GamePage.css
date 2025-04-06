@@ -1,11 +1,5 @@
-@import url('httpsfonts.googleapis.comcss2family=Orbitronwght@500&display=swap');
-
-
 body {
     font-family: Arial, Helvetica, sans-serif;
-}
-.titulo-juego{
-    
 }
 .form-card {
     backdrop-filter: blur(2px);
@@ -25,4 +19,125 @@ body {
 .h2-part1{
     color: #ee79e8;
     font-size: 1.5rem;
+}
+
+.game-container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-image: url("../../assets/LightGalaxy2.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  transition: all 0.5s ease-in-out;
+  position: relative;
+  overflow: hidden;
+}
+
+.game-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(2px);
+  z-index: 1;
+}
+
+.game-content {
+  width: 100%;
+  max-width: 1200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3rem;
+  padding: 0 2rem;
+  position: relative;
+  z-index: 2;
+}
+
+.profiles-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  width: 100%;
+  max-width: 800px;
+  animation: slideUp 0.8s ease-out;
+}
+
+.game-title {
+  color: #1e3a8a;
+  font-family: "Oxanium", sans-serif;
+  text-align: center;
+  text-shadow: 0 0 10px rgba(30, 58, 138, 0.3);
+  font-size: 3rem;
+  font-weight: 800;
+  letter-spacing: 2px;
+  animation: fadeIn 1s ease-out;
+  background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  margin: 1rem 0;
+}
+
+.buttons-container {
+  width: 100%;
+  max-width: 600px;
+  display: flex;
+  justify-content: center;
+  animation: slideUp 0.8s ease-out 0.2s both;
+}
+
+@media (min-width: 768px) {
+  .profiles-container {
+    flex-direction: row;
+    justify-content: center;
+    gap: 4rem;
+  }
+
+  .game-title {
+    font-size: 4rem;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Dark theme styles */
+.dark .game-container {
+  background-image: url("../../assets/Galaxy3.png");
+}
+
+.dark .game-container::before {
+  background: rgba(0, 0, 0, 0.4);
+}
+
+.dark .game-title {
+  background: linear-gradient(135deg, #e5e7eb 0%, #8b5cf6 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  text-shadow: 0 0 20px rgba(139, 92, 246, 0.3);
 }

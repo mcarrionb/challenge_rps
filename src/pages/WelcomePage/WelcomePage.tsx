@@ -1,6 +1,7 @@
 import React from "react";
 import "./welcomesPage.css";
 import { useNavigate } from "react-router-dom";
+import { t } from "i18next";
 
 export const WelcomePage: React.FC = () => {
   const navigate = useNavigate();
@@ -12,11 +13,11 @@ export const WelcomePage: React.FC = () => {
   return (
     <div className="welcome-container flex items-center justify-center min-h-screen w-full">
       <div className="welcome-content rounded-xl px-24 py-12">
-        <h2 className="welcome-title text-2xl font-normal m-0">WELCOME TO</h2>
+        <h2 className="welcome-title text-2xl font-normal m-0">{t("welcomeTo")}</h2>
         <h1 className="game-title text-4xl font-bold my-4 mb-8">
-          ROCK, PAPER,
+          {t("gameTitle1")}
           <br />
-          SCISSORS
+          {t("gameTitle2")}
         </h1>
         <button 
           onClick={handlePlay} 

@@ -1,0 +1,105 @@
+.ventana-perfil-jugador {
+  position: fixed;
+  top: 2rem;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  padding: 1.5rem 2rem;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  color: white;
+  gap: 1.5rem;
+  min-width: 280px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 
+    0 8px 32px rgba(0, 0, 0, 0.1),
+    inset 0 0 20px rgba(255, 255, 255, 0.05);
+  transition: all 0.3s ease;
+  animation: slideIn 0.5s ease-out;
+}
+
+.ventana-perfil-jugador:hover {
+  transform: translateY(-5px);
+  box-shadow: 
+    0 12px 40px rgba(0, 0, 0, 0.15),
+    inset 0 0 20px rgba(255, 255, 255, 0.1);
+}
+
+.ventana-perfil-jugador-U {
+  background: linear-gradient(135deg, rgba(30, 58, 138, 0.2), rgba(59, 130, 246, 0.2));
+  left: 2rem;
+}
+
+.ventana-perfil-jugador-E {
+  background: linear-gradient(135deg, rgba(139, 92, 246, 0.2), rgba(88, 101, 242, 0.2));
+  right: 2rem;
+}
+
+.imagen-perfil {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #7786f7;
+  outline: 2px solid rgba(119, 134, 247, 0.3);
+  outline-offset: 8px;
+  box-shadow: 
+    0 0 15px rgba(119, 134, 247, 0.3),
+    inset 0 0 10px rgba(119, 134, 247, 0.2);
+  transition: all 0.3s ease;
+}
+
+.ventana-perfil-jugador:hover .imagen-perfil {
+  transform: scale(1.05);
+  box-shadow: 
+    0 0 20px rgba(119, 134, 247, 0.4),
+    inset 0 0 15px rgba(119, 134, 247, 0.3);
+}
+
+.info-perfil h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin: 0;
+  background: linear-gradient(135deg, #ffffff 0%, #a5b4fc 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+}
+
+/* Dark theme styles */
+.dark .ventana-perfil-jugador-U {
+  background: linear-gradient(135deg, rgba(30, 58, 138, 0.3), rgba(59, 130, 246, 0.3));
+}
+
+.dark .ventana-perfil-jugador-E {
+  background: linear-gradient(135deg, rgba(139, 92, 246, 0.3), rgba(88, 101, 242, 0.3));
+}
+
+.dark .info-perfil h2 {
+  background: linear-gradient(135deg, #e5e7eb 0%, #8b5cf6 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .ventana-perfil-jugador {
+    position: relative;
+    top: 0;
+    left: 0;
+    right: 0;
+    margin: 1rem auto;
+  }
+}

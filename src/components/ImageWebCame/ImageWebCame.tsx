@@ -1,6 +1,6 @@
 import { FC, ReactElement, useRef, useState } from "react";
 import Webcam from "react-webcam";
-// import "./WebcamPopup.css";
+import {useTranslation} from 'react-i18next';
 
 
 interface FotoProps {
@@ -9,13 +9,15 @@ interface FotoProps {
 }
 
 export const ImageWebCame: FC<FotoProps> = ({ handleImageUrl }): ReactElement => {
+    const { t } = useTranslation();
+    
+    
     const webcamRef = useRef<Webcam | null>(null);
     const [isOpen, setIsOpen] = useState(false);
 
     const foto = () => {
         if (webcamRef.current) {
             const captura = webcamRef.current.getScreenshot();
-            console.log(captura);
             if (captura) {
                 handleImageUrl(captura);
                 setIsOpen(false)
@@ -28,8 +30,9 @@ export const ImageWebCame: FC<FotoProps> = ({ handleImageUrl }): ReactElement =>
 
     return (
         <>
-            <button onClick={() => setIsOpen(true)} className="text-input cursor-pointer flex items-left justify-left start-button-webcam ">
-                Open webcam
+            <button onClick={() => setIsOpen(true)} 
+                className="text-input cursor-pointer flex items-left justify-left start-button-webcam">
+                {t("openWebCam")}
             </button>
 
             {isOpen && (
@@ -45,10 +48,10 @@ export const ImageWebCame: FC<FotoProps> = ({ handleImageUrl }): ReactElement =>
                         <div className="webcam-mask"></div>
                         <div className="popup-buttons">
                             <button onClick={foto} className="border border-white rounded-md px-4 py-2 text-white cursor-pointer capture">
-                                Tomar Foto
+                                {t("capPhotoWebCam")}
                             </button>
                             <button onClick={() => setIsOpen(false)} className="border border-white rounded-md px-4 py-2 text-white cursor-pointer close">
-                                Cerrar
+                                {t("closeWebCam")}
                             </button>
                         </div>
                         

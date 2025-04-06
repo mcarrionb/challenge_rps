@@ -6,6 +6,7 @@ import { FormInputs } from "../../components/formInputs/FormInputs";
 import { ImageUploader } from "../../components/ImageUploader/ImageUploader";
 import { ImageSourceSelector } from "../../components/ImageSourceSelector/ImageSourceSelector";
 import { Bounce, ToastContainer, toast } from 'react-toastify';
+import { t } from "i18next";
 
 export const StartPage: React.FC = () => {
   const navigate = useNavigate();
@@ -67,7 +68,7 @@ export const StartPage: React.FC = () => {
   return (
     <div className="start-container">
       <div className="start-content">
-        <h1 className="profile-title">
+        <h1 className="profile-title text-lg">
           PROFILE
           <br />
           SETUP
@@ -101,7 +102,7 @@ export const StartPage: React.FC = () => {
 
           {/* Start game btn */}
           <button className="confirm-button rounded-xl" onClick={handleStart}>
-            CONFIRM
+            {t('confirm')}
           </button>
 
         </div>
