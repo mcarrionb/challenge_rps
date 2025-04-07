@@ -19,7 +19,7 @@ export const PerfilGame: FC<PerfilProps> = ({username, image, enemy}): ReactElem
             flex items-center gap-6 min-w-[280px] p-6 rounded-2xl backdrop-blur-md
             border border-white/10 shadow-[0_8px_32px_rgba(0,0,0,0.1),inset_0_0_20px_rgba(255,255,255,0.05)]
             transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_12px_40px_rgba(0,0,0,0.15),inset_0_0_20px_rgba(255,255,255,0.1)]`}>
-            <div className="relative">
+            <div className="relative shrink-0">
                 <img 
                     src={image} 
                     alt={`Perfil de ${username}`} 
@@ -33,8 +33,8 @@ export const PerfilGame: FC<PerfilProps> = ({username, image, enemy}): ReactElem
                     }}
                 />
             </div>
-            <div className="info-perfil">
-                <h2 className="text-2xl font-semibold m-0 bg-gradient-to-r from-white to-indigo-300 
+            <div className="info-perfil min-w-0 flex-1">
+                <h2 className="text-2xl font-semibold m-0 truncate bg-gradient-to-r from-white to-indigo-300 
                     bg-clip-text text-transparent dark:from-gray-100 dark:to-purple-500">
                     {username}
                 </h2>

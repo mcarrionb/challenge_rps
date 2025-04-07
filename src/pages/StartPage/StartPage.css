@@ -5,15 +5,13 @@ body {
 }
 
 .start-container {
-  width: 100vw;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  width: 100%;
+  min-height: 100vh;
   background-image: url("../../assets/LightGalaxy2.png");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  background-attachment: fixed;
   transition: background-image 0.5s ease-in-out;
 }
 
@@ -22,26 +20,27 @@ body {
   background: rgba(255, 255, 255, 0.15);
   border: 1px solid rgba(255, 255, 255, 0.3);
   border-radius: 0.75rem;
-  padding: 2.5rem;
   text-align: center;
   box-shadow: 
     0 0 30px rgba(255, 255, 255, 0.2),
     inset 0 0 20px rgba(255, 255, 255, 0.1);
   animation: fadeIn 1s ease-out;
-  width: 90%;
-  max-width: 860px;
-  margin: 0 auto;
+  transition: all 0.3s ease;
+}
+
+@media (max-width: 640px) {
+  .start-content {
+    backdrop-filter: blur(6px);
+  }
 }
 
 .profile-title {
   color: #1e3a8a;
   font-family: "Oxanium", sans-serif;
-  font-size: 2.5rem;
   font-weight: bold;
   letter-spacing: 3px;
-  margin-bottom: 2rem;
   line-height: 1.2;
-
+  margin-bottom: 2rem;
 }
 
 .form-hidden {
@@ -102,6 +101,7 @@ body {
   color: #1e3a8a;
   font-family: "Oxanium", sans-serif;
   transition: all 0.3s ease;
+  width: 100%;
 }
 
 .form-input:focus, .text-input:focus {
@@ -125,16 +125,6 @@ body {
 }
 
 /* Image container */
-.image-preview-container {
-  width: 120px;
-  height: 120px;
-  border-radius: 50%;
-  margin: 0 auto 1.5rem;
-  overflow: hidden;
-  border: 2px solid rgba(30, 58, 138, 0.3);
-  background: rgba(255, 255, 255, 0.1);
-}
-
 .avatar-preview {
   width: 100%;
   height: 100%;
@@ -161,9 +151,7 @@ input[type="file"] {
   background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
   color: #ffffff;
   border: none;
-  padding: 0.875rem 2rem;
   font-family: "Oxanium", sans-serif;
-  font-size: 1rem;
   font-weight: 600;
   cursor: pointer;
   transition: all 0.3s ease;
@@ -259,11 +247,17 @@ input[type="file"] {
 }
 
 .dark .start-content {
-  background: rgba(13, 16, 33, 0.6);
+  background: rgba(13, 16, 33, 0.7);
   box-shadow: 
     0 0 30px rgba(88, 101, 242, 0.3),
     inset 0 0 20px rgba(88, 101, 242, 0.1);
   border: 1px solid rgba(88, 101, 242, 0.2);
+}
+
+@media (max-width: 640px) {
+  .dark .start-content {
+    background: rgba(13, 16, 33, 0.8);
+  }
 }
 
 .dark .profile-title {

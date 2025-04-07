@@ -80,7 +80,7 @@ export default function Juego() {
       <div className="rps-container-2lados">
         {/* LADO IZQUIERDO */}
         <div className="lado usuario">
-          <h3>{t('yourEleccion')}</h3>
+          <h3 className="text-black dark:text-sky-200">{t('yourEleccion')}</h3>
           {OPCIONES.map((opcion) => (
             <button
               key={opcion}
@@ -114,7 +114,7 @@ export default function Juego() {
 
         {/* LADO DERECHO */}
         <div className="lado computadora">
-          <h3>{t('computer')}</h3>
+          <h3 className="text-black dark:text-sky-200">{t('computer')}</h3>
           {OPCIONES.map((opcion) => (
             <div
               key={opcion}

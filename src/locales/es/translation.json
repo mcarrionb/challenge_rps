@@ -1,6 +1,6 @@
 {
   "welcomeTo": "BIENVENIDO A",
-  "gameTitle1": "PIEDRA, PAPEL",
+  "gameTitle1": "PIEDRA, PAPEL,",
   "gameTitle2": "TIJERAS",
   "game": "PIEDRA, PAPEL, TIJERAS",
   "errorImg": "Elige una imagen",
@@ -30,8 +30,8 @@
   "result": "Resultado",
   "downloadHistory": "Descargar",
   "confirm": "ACEPTAR",
-  "validatioName3Leters": "El Nombre debe tener almenos 3 caracteres",
-  "validationNameBlank": "El Nombre es obligatorio",
+  "validatioName3Leters": "El nombre debe tener almenos 3 caracteres",
+  "validationNameBlank": "El nombre es obligatorio",
   "oponent": "Oponente",
   "your": "Tú",
   "computer": "Computadora",

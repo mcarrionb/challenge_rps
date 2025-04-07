@@ -3,17 +3,8 @@
   top: 2rem;
   background: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(10px);
-  padding: 1.5rem 2rem;
-  border-radius: 16px;
-  display: flex;
-  align-items: center;
   color: white;
-  gap: 1.5rem;
-  min-width: 280px;
   border: 1px solid rgba(255, 255, 255, 0.1);
-  box-shadow: 
-    0 8px 32px rgba(0, 0, 0, 0.1),
-    inset 0 0 20px rgba(255, 255, 255, 0.05);
   transition: all 0.3s ease;
   animation: slideIn 0.5s ease-out;
 }
@@ -36,24 +27,12 @@
 }
 
 .imagen-perfil {
-  width: 70px;
-  height: 70px;
-  border-radius: 50%;
   object-fit: cover;
-  border: 2px solid #7786f7;
-  outline: 2px solid rgba(119, 134, 247, 0.3);
-  outline-offset: 8px;
-  box-shadow: 
-    0 0 15px rgba(119, 134, 247, 0.3),
-    inset 0 0 10px rgba(119, 134, 247, 0.2);
   transition: all 0.3s ease;
 }
 
 .ventana-perfil-jugador:hover .imagen-perfil {
   transform: scale(1.05);
-  box-shadow: 
-    0 0 20px rgba(119, 134, 247, 0.4),
-    inset 0 0 15px rgba(119, 134, 247, 0.3);
 }
 
 .info-perfil h2 {
@@ -94,12 +73,29 @@
 }
 
 /* Responsive styles */
-@media (max-width: 768px) {
+@media (max-width: 640px) {
   .ventana-perfil-jugador {
     position: relative;
     top: 0;
-    left: 0;
-    right: 0;
-    margin: 1rem auto;
+    left: 0 !important;
+    right: 0 !important;
+    margin: 0;
+    width: 180px !important;
+    min-width: 180px !important;
+    padding: 0.75rem !important;
+    gap: 0.75rem !important;
+  }
+
+  .imagen-perfil {
+    width: 40px !important;
+    height: 40px !important;
+  }
+
+  .info-perfil h2 {
+    font-size: 1rem !important;
+  }
+
+  .info-perfil span {
+    font-size: 0.75rem !important;
   }
 }

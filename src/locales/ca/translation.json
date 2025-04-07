@@ -1,6 +1,6 @@
 {
   "welcomeTo": "BENVINGUT A",
-  "gameTitle1": "PEDRA, PAPER",
+  "gameTitle1": "PEDRA, PAPER,",
   "gameTitle2": "TISORES",
   "game": "PEDRA, PAPER, TISORES",
   "errorImg": "Tria una imatge",
@@ -30,8 +30,8 @@
   "result": "Resultat",
   "downloadHistory": "Descarregar",
   "confirm": "ACCEPTAR",
-  "validatioName3Leters": "El Nom ha de tenir almenys 3 caràcters",
-  "validationNameBlank": "El Nom és obligatori",
+  "validatioName3Leters": "El nom ha de tenir almenys 3 caràcters",
+  "validationNameBlank": "El nom és obligatori",
   "oponent": "Oponent",
   "your": "Tú",
   "computer": "Ordinador",

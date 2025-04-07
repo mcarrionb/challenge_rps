@@ -31,7 +31,7 @@ export const ToggleButton: React.FC = () =>{
 
 
     return (
-        <label htmlFor="theme" className="relative block h-8 w-14 rounded-full bg-gray-300 transition-colors [-webkit-tap-highlight-color:_transparent] has-checked:bg-pink-500 dark:bg-gray-600 dark:has-checked:bg-gray-600">
+        <label htmlFor="theme" className="fixed relative block h-8 w-14 rounded-full bg-gray-300 transition-colors [-webkit-tap-highlight-color:_transparent] has-checked:bg-pink-500 dark:bg-gray-600 dark:has-checked:bg-gray-600">
             <input type="checkbox" checked={isDark} onChange={toggleDarkMode} id="theme" className="peer sr-only" />
 
             <span className="absolute inset-y-0 start-0 m-1 grid size-6 place-content-center rounded-full bg-white text-gray-700 transition-[inset-inline-start] peer-checked:start-6 peer-checked:*:first:hidden *:last:hidden peer-checked:*:last:block dark:bg-gray-900 dark:text-gray-200">

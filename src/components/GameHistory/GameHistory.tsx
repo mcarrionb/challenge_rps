@@ -27,7 +27,7 @@ export const GameHistory: React.FC<{
   gameHistory: GameHistoryEntry[];
   playerName: string;
 }> = ({ isOpen, onClose, gameHistory, playerName }) => {
-  // Create columns inside the component to ensure translations are loaded
+  
   const columns = [
     columnHelper.accessor('date', {
       header: () => t('date'),
