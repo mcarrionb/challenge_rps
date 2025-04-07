@@ -135,7 +135,6 @@ export const StartForm: FC = ():ReactElement => {
         </button>
       </div>
 
-      <NotiToastError />
     </div>
   );
 };
